@@ -5,10 +5,12 @@ from acme import Product, BoxingGlove
 ADJECTIVES = ['Awesome', 'Shiny', 'Impressive', 'Portable', 'Improved']
 NOUNS = ['Anvil', 'Catapult', 'Disguise', 'Mousetrap', '???']
     
-def generate_products():
+def generate_products(num_products=30):
+    
     products = []
-    for _ in range(5):
+    for _ in range(num_products):
         name = ADJECTIVES[randint(0, 4)] + \
+               ' ' + \
                NOUNS[randint(0, 4)]
 
         price = randint(5, 100)
@@ -19,7 +21,7 @@ def generate_products():
                        price=price,
                        weight=weight,
                        flammability=flammability)
-    products.append(prod)
+        products.append(prod)
     
     return products
 
